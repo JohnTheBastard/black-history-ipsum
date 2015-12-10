@@ -1,6 +1,21 @@
+/*---------HEADER---------*/
+.header {
+  max-width: 90%;
+  margin: auto;
+  /*position: relative;*/
+  /*text-align: center;*/
+  font-size: 12px;
+  font-family: 'lora';
+  /*height: 20px;*/
+}
+
+.navLink {
+  display: inline;
+}
+
 body {
    background-color: #F4EDDF;
-   margin: 0px;
+   /*margin: 0px;*/
 }
 
 a {
@@ -8,28 +23,8 @@ a {
   padding: none;
 }
 
-h1 {
-  font-size: 18px;
-  font-family: 'lora';
-}
 
-h2 {
-  font-size: 16px;
-  font-family: 'lora';
-}
 
-h3 {
-  font-size: 14px;
-  font-family: 'lora';
-}
-
-.header {
-  position: relative;
-  text-align: center;
-  font-size: 12px;
-  font-family: 'lora';
-  height: 20px;
-}
 
 /*.nav1 {
   height: 200px;
@@ -41,13 +36,15 @@ h3 {
   padding: 10px;
 }*/
 .nav2 {
-  height: 120px;
-  text-align: center;
+  display: inline;
+  text-align: right;
+  /*height: 120px;*/
+  /*text-align: center;*/
   /*background-color: cornsilk;*/
   font-family: 'lora';
-  margin: 40px;
-  border-radius: 10px;
-  padding: 10px;
+  /*margin: 40px;*/
+  /*border-radius: 10px;*/
+  /*padding: 10px;*/
 }
 
 /*.generatorbox {
@@ -55,11 +52,13 @@ h3 {
 }*/
 
 .generator {
-  margin: 40px;
-  margin-top: 160px;
-  border-radius: 10px;
-  background-color: wheat;
-  padding: 20px;
+  display: block;
+  /*margin: 40px;*/
+  /*margin-top: 160px;*/
+  border: 1px solid #1A1918;
+  /*border-radius: 10px;*/
+  /*background-color: wheat;*/
+  /*padding: 20px;*/
   height: 400px;
 }
 
