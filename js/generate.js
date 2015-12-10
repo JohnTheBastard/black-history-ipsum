@@ -1,3 +1,62 @@
+// Author object constructor
+function AuthorObj( properties ) {
+
+    this.parseParagraphs = function( paragraphArray ) {
+	return paragraphArray
+	        .map(function(a) {return "<p>" + a + "</p>";})
+	        .reduce(function(a,b) {return a + b;});
+    }
+    
+    this.name = properties.name;
+    this.shortName = properties.shortName;
+    this.paragraphs = properties.paragraphs;
+    this.text = this.parseParagraphs(properties.paragraphs);
+    var self = this;
+}
+
+var GET_JSON = (function() {
+    // we'll return this object after we give it some methods 
+    // so we can access it from the console
+    var my = {};
+    my.authorData = {};
+    
+    // get your JSON data here
+    my.jsonURL = "js/authorIpsum.json";
+    
+    // compare functions for sorting
+    var alphabetical = function(a, b) {
+	var A = a.toLowerCase();
+	var B = b.toLowerCase();
+	
+	if (A < B) {return -1; }
+	else if (A > B) { return  1; }
+	else { return 0; }
+    }
+    var byShortName = function(a, b) { return alphabetical( a.shortName, b.shortName ) };
+    
+
+    // some other useful functions
+    var castToAuthorObj = function(author) {
+	return new AuthorObj(author);
+    }
+    var processJSON = function( jsonData, textStatus, xhr ) {
+	my.authorData = jsonData.authors.map( castToAuthorObj ).sort(byShortName);
+    }
+
+    // This is where we begin doing stuff
+    $.ajax( { type: "GET",
+	      url: my.jsonURL,
+	      async: false,
+	      dataType: "json",
+	      contentType: 'application/json; charset=utf-8',
+	      success: processJSON } );
+    
+    return my;
+    
+})();
+
+
+
 //array of objects
 var authorsArray = [coates, douglas, dubois, garvey, hooks, kingjr, lincoln, malcolmx, obama, truth, washington, wells, west]
 
