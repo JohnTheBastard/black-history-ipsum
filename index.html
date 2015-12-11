@@ -4,7 +4,7 @@
 
     <title>Black History Ipsum</title>
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
     <link href='https://fonts.googleapis.com/css?family=Lora|Poiret+One|Oxygen|Amatic+SC|Changa+One|Permanent+Marker' rel='stylesheet' type='text/css'>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -30,74 +30,81 @@
       <h1 id="title">The Black History Ipsum</h1>
       <img id="titleImg" src="img/blackHistoryPic.png">
       <div class="nav2">
-        <h2 class="navLink"><a href="index.html">Home</a></h2>
-        <h2 class="navLink"><a href="author.html">Sources</a></h2>
-        <h2 class="navLink"><a href="team.html">Dev Team</a></h2>
+        <h2 class="navLink"><a href="index.html">home|</a></h2>
+        <h2 class="navLink"><a href="author.html">sources|</a></h2>
+        <h2 class="navLink"><a href="team.html">dev team|</a></h2>
       </div>
     </header>
+
+    <div id="aboutContainer">
+      <h1>A little background...</h1>
+      <p>There are an abundance of Lorem Ipsum generators available on the web. They range from incomprehensible to humorous to the unapologetically profane. My twelve-year-old son is learning to code and I would like for him to learn something from Lorem Ipsum. So I came up with the idea to create a text generator that would subtly teach him some Black history. When I was in school, Black history was always treated as a static subject relegated to February instead of a dynamic topic worthy of frequent engagement. With the help of my dedicated teammates, we have produced a working text generator that draws from the words of a few of the most notable African Americans in history.</p>
+    </div>
 
     <div class="generatorbox">
       <section id="generatedform" class="generator">
         <form>
-          <p id="aboutText">There are an abundance of Lorem Ipsum generators available on the web. They range from incomprehensible to humorous to the unapologetically profane. My twelve-year-old son is learning to code and I would like for him to learn something from Lorem Ipsum. So I came up with the idea to create a text generator that would subtly teach him some Black history. When I was in school, Black history was always treated as a static subject relegated to February instead of a dynamic topic worthy of frequent engagement. With the help of my dedicated teammates, we have produced a working text generator that draws from the words of a few of the most notable African Americans in history.</p><br>
 
-          <label>Choose an author:</label>
-          <select id="authorname" >
-            <option value="coates">Ta-Nehisi Coates</option>
-            <option value="douglas">Fredrick Douglas</option>
-            <option value="dubois">W. E. B. Du Bois</option>
-            <option value="garvey">Marcus Garvey</option>
-            <option value="hooks">Bell Hooks</option>
-            <option value="kingjr">Martin Luther King Jr</option>
-            <option value="lincoln">Abraham Lincoln</option>
-            <option value="malcolmx">Malcolm X</option>
-            <option value="obama">Barack Obama</option>
-            <option value="truth">Sojourner Truth</option>
-            <option value="washington">Booker T. Washington</option>
-            <option value="wells">Ida B Wells</option>
-            <option value="west">Cornel West</option>
-          </select><br>
-          <br>
 
-          <label>Quantity:</label>
-          <input type="number" name="" id="quantity"><br>
-          <br>
+          <div id="userInputFields">
+            <label>Choose an author:</label>
+            <select id="authorname" >
+              <option value="coates">Ta-Nehisi Coates</option>
+              <option value="douglas">Fredrick Douglas</option>
+              <option value="dubois">W. E. B. Du Bois</option>
+              <option value="garvey">Marcus Garvey</option>
+              <option value="hooks">Bell Hooks</option>
+              <option value="kingjr">Martin Luther King Jr</option>
+              <option value="lincoln">Abraham Lincoln</option>
+              <option value="malcolmx">Malcolm X</option>
+              <option value="obama">Barack Obama</option>
+              <option value="truth">Sojourner Truth</option>
+              <option value="washington">Booker T. Washington</option>
+              <option value="wells">Ida B Wells</option>
+              <option value="west">Cornel West</option>
+            </select><br>
+            <br>
 
-          <input type="radio" name="q" id="para" >
-          <label>Paragraphs</label>
-          <br>
-          <input type="radio" name="q" id="words" >
-          <label>Words</label>
-          <br>
-          <br>
+            <label>Quantity:</label>
+            <input type="number" name="" id="quantity"><br>
+            <br>
 
-          <input type="checkbox" name="checkBox" id="pTag" value="ptags" >
-          <label>Add paragraph tags </label><br>
-          <br>
+            <input type="radio" name="q" id="para" >
+            <label>Paragraphs</label>
+            <br>
+            <input type="radio" name="q" id="words" >
+            <label>Words</label>
+            <br>
+            <br>
 
-          <label>Font Choice: </label><br>
-          <select id="fontname">
-            <option value="lora">Lora</option>
-            <option value="poiret1">Poiret One</option>
-            <option value="o2">Oxygen</option>
-            <option value="pmarker">Permanent Marker</option>
-          </select><br>
-          <br>
+            <input type="checkbox" name="checkBox" id="pTag" value="ptags" >
+            <label>Add paragraph tags </label><br>
+            <br>
 
-          <button id="generate" /> Generate Ipsum </button>
-          <input type="hidden" /><br>
-          <br>
+            <label>Font Choice: </label><br>
+            <select id="fontname">
+              <option value="lora">Lora</option>
+              <option value="poiret1">Poiret One</option>
+              <option value="o2">Oxygen</option>
+              <option value="pmarker">Permanent Marker</option>
+            </select><br>
+            <br>
 
+            <button id="generate" /> Generate Ipsum </button>
+            <input type="hidden" /><br>
+            <br>
+          </div>
         </form>
       </section>
     </div>
 
-    <div class="gentext">
-      <section class="gentextbox" id="generatedtext">
-        <p><script src="js/generate.js" type="text/javascript" charset="utf-8" async defer></script></p>
+    <div id="outPutContainer">
+      <section id="generatedtext">
+        <p></p>
       </section>
     </div>
 
+    <script src="js/generate.js" type="text/javascript" charset="utf-8" async defer></script>
   </body>
 
   <footer class="footer">This website was a final project for Code Fellows Bootcamp, 2015.</footer>
