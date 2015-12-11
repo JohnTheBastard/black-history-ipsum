@@ -79,6 +79,7 @@ var clicked = function(event) {
     var formPTag = false;
   };
 
+
   var formFont = document.getElementById('fontname').value;
 
   //console.log(formAuthor, formQuantity, formParaWords, formPTag, formFont);
@@ -152,85 +153,6 @@ var clicked = function(event) {
 
 } //END OF CLICKED FUNCTION
 
-//check local storage for form content and repopulate dropdown menue of authors
-var authors = document.getElementById('authorname');
-
-function fillAuthor() {
-  if (localStorage.getItem("select")) {
-    var getForm = JSON.parse(localStorage.getItem("select"));
-    if (getForm[0]) {
-      for (var i in authors) {
-        if (authors[i].value === getForm[0]) {
-          authors[i].selected = true;
-          return;
-        }
-      }
-    }
-  }
-}
-fillAuthor();
-
-//check local storage for form content and repopulate par or word quantity
-var formQuant = document.getElementById('quantity');
-
-function keepQuantity() {
-  if (localStorage.getItem("select")) {
-    var getForm = JSON.parse(localStorage.getItem("select"));
-    if (getForm[1]) {
-      formQuant.value = getForm[1]
-    }
-  }
-};
-keepQuantity();
-
-//check local storage for form content and repopulate word or paragraph radio button
-var getPar = document.getElementById('para');
-var getWord = document.getElementById('words');
-
-function keepParWord() {
-  if (localStorage.getItem("select")) {
-    var getForm = localStorage.getItem("select");
-    getForm = JSON.parse(getForm);
-    if (getForm[2] === "Paragraphs") {
-      getPar.checked = true;
-    } else if (getForm[2] === "Words") {
-      getWord.checked = true;
-    }
-  }
-};
-keepParWord();
-
-//check local storage for form content and repopulate checkbox
-var checkBox = document.getElementById('pTag');
-
-function fillCheckbox() {
-  if (localStorage.getItem("select")) {
-    var getForm = localStorage.getItem("select");
-    getForm = JSON.parse(getForm);
-    if (getForm[3]) {
-      checkBox.checked = true;
-    }
-  }
-};
-fillCheckbox();
-
-//check local storage for form content and repopulate dropdown menue for fonts
-var fonts = document.getElementById('fontname');
-
-function keepFont() {
-  if (localStorage.getItem("select")) {
-    var getForm = JSON.parse(localStorage.getItem("select"));
-    if (getForm[4]) {
-      for (var i in fonts) {
-        if (fonts[i].value === getForm[4]) {
-          fonts[i].selected = true;
-          return;
-        }
-      }
-    }
-  }
-}
-keepFont();
 
 //Event Listener for 'Generate Ipsum' Button
 var generate = document.getElementById('generate');
