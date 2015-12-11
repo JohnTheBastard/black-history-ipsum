@@ -4,59 +4,93 @@
 <head>
   <title>Authors Found on This Site</title>
 
-  <link href="css/style.css" type="text/css" rel="stylesheet" />
+  <link href="css/index.css" type="text/css" rel="stylesheet" />
 
   <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
 </head>
 
 <body>
 
-  <header>
-      <h1>THE BLACK HISTORY IPSUM</h1>
-      <nav>
-        <ul>
-          <li><h3><a href="index.html">IPSUM Home</a></h3></li>
-          <li><h3><a href="team.html">THE TEAM</a></h3></li>
-          <li><h3><a href="author.html">THE SOURCES</a></h3></li>
-        </ul>
-      </nav>
-    </header><!-- /header -->
+  <div class="staticHeader">
+    <header class="header">
+      <h1 class="title">The Black History Ipsum</h1>
+      <img class="titleImg" src="img/blackHistoryPic.png">
+      <div class="nav">
+        <h2 class="navLink"><a href="index.html">home|</a></h2>
+        <h2 class="navLink"><a href="author.html">sources|</a></h2>
+        <h2 class="navLink"><a href="team.html">dev team|</a></h2>
+      </div>
+    </header>
 
-  <!--<header>
-  <h1><a href="index.html">THE BLACK HISTORY IPSUM</a></h1>
-    <div id='nav'>
-    <h2><a href="team.html">THE TEAM</a></h2><h2><a href="author.html">THE SOURCES</a></h2>
-    </div>
-  </header><! /header -->
+    <div class="lineSeparator"></div>
+  </div>
+  <div class="block"></div>
+  <section id="authorContainer">
+    <h2>Find Links to Author Pages</h2>
 
-  <section id="">
-    <h4>Find Links to Author Pages</h4>
-    <table width-"900" cellpadding="10" cellspacing="5">
-      <tr>
-        <td><a href="authors/coates.html"><img src="img/tcoates.jpg" width="100"/>Ta-Nehasi Coates</a></td>
-        <td><a href="authors/douglas.html"><img src="img/fred-douglass.jpg" width="100"/>Fredrick Douglass</a></td>
-        <td><a href="authors/dubois.html"><img src="img/web-dubois.jpg" width="100"/>W.E.B. Du Bois</a></td>
-      </tr>
 
-      <tr>
-        <td><a href="authors/garvey.html"><img src="img/garvey2.jpg" width="100"/>Marcus Garvey</a></td>
-        <td><a href="authors/hooks.html"><img src="img/bhooks.jpg" width="100"/>Bell Hooks</a></td>
-        <td><a href="authors/kingjr.html"><img src="img/mlk.jpg" width="100"/>M.L.K. Jr</a></td>
-      </tr>
+        <div class="author">
+          <img class="authorPhoto" src="img/tcoates.jpg"/>
+          <a href="authors/coates.html">Ta-Nehasi Coates</a>
+        </div>
+        <div class="author">
+          <img class="authorPhoto" src="img/fred-douglass.jpg"/>
+          <a href="authors/douglas.html">Fredrick Douglass</a>
+        </div>
+        <div class="author">
+          <img class="authorPhoto" src="img/web-dubois.jpg"/>
+          <a href="authors/dubois.html">W.E.B. Du Bois</a>
+        </div>
 
-      <tr>
-        <td><a href="authors/licoln.html"><img src="img/abe-lincoln.jpg" width="100"/>Abe Lincoln</a></td>
-        <td><a href="authors/malcolmx.html"><img src="img/malcolm-x-2.jpg" width="100"/>Malcolm X</a></td>
-        <td><a href="authors/obama.html"><img src="img/potus-obama.jpg" width="100"/>Barak Obama</a></td>
-      </tr>
+        <div class="author">
+          <img class="authorPhoto" src="img/garvey2.jpg"/>
+          <a href="authors/garvey.html">Marcus Garvey</a>
+        </div>
+        <div class="author">
+          <img class="authorPhoto" src="img/bhooks.jpg"/>
+          <a href="authors/hooks.html">Bell Hooks</a>
+        </div>
+        <div class="author">
+          <img class="authorPhoto" src="img/mlk.jpg"/>
+          <a href="authors/kingjr.html">M.L.K. Jr</a>
+        </div>
 
-      <tr>
-        <td><a href="authors/truth.html"><img src="img/struth.png" width="100"/>Sojourner Truth</a></td>
-        <td><a href="authors/washington.html"><img src="img/btwashington-2.jpg" width="100"/>Booker T. Washington</a></td>
-        <td><a href="authors/wells.html"><img src="img/ibwells.jpeg" width="100"/>Ida Wells</a></td>
-        <td><a href="authors/west.html"><img src="img/cwest.jpg" width="100"/>Cornel West</a></td>
-      </tr>
+
+        <div class="author">
+          <img class="authorPhoto" src="img/abe-lincoln.jpg"/>
+          <a href="authors/licoln.html">Abe Lincoln</a>
+        </div>
+        <div class="author">
+          <img class="authorPhoto" src="img/malcolm-x-2.jpg"/>
+          <a href="authors/malcolmx.html">Malcolm X</a>
+        </div>
+        <div class="author">
+          <img class="authorPhoto" src="img/potus-obama.jpg"/>
+          <a href="authors/obama.html">Barak Obama</a>
+        </div>
+
+
+        <div class="author">
+          <img class="authorPhoto" src="img/struth.png"/>
+          <a href="authors/truth.html">Sojourner Truth</a>
+        </div>
+        <div class="author">
+          <img class="authorPhoto" src="img/btwashington-2.jpg"/>
+          <a href="authors/washington.html">Booker T. Washington</a>
+        </div>
+        <div class="author">
+          <img class="authorPhoto" src="img/ibwells.jpeg"/>
+          <a href="authors/wells.html">Ida Wells</a>
+        </div>
+        <div class="author">
+          <img class="authorPhoto" src="img/cwest.jpg"/>
+          <a href="authors/west.html">Cornel West</a>
+        </div>
+
     </table>
   </section>
+
+  <footer class="footer">This website was a final project for Code Fellows Bootcamp, 2015.</footer>
+  
 </body>
 </html>
