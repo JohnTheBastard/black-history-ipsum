@@ -1,29 +1,29 @@
 // Author object constructor
 function AuthorObj( properties ) {
 
-    this.parseParagraphs = function( paragraphArray ) {
+    this.unescapedConcat = function( paragraphArray ) {
 	return paragraphArray
 	        .map(function(a) {return "<p>" + a + "</p>";})
+	        .reduce(function(a,b) {return a + b;});
+    }
+
+    this.escapedConcat = function( paragraphArray ) {
+	return paragraphArray
+	        .map(function(a) {return "<p>&lt;p&gt" + a + "&lt/p&gt</p>";})
 	        .reduce(function(a,b) {return a + b;});
     }
     
     this.name = properties.name;
     this.shortName = properties.shortName;
-    this.paragraphs = properties.paragraphs;
-    this.text = this.parseParagraphs(properties.paragraphs);
+    this.taggedText = this.escapedConcat(properties.paragraphs);
+    this.untaggedText = this.unescapedConcat(properties.paragraphs);
     var self = this;
 }
 
 var GET_JSON = (function() {
-    // we'll return this object after we give it some methods 
-    // so we can access it from the console
     var my = {};
     my.authorData = {};
-    
-    // get your JSON data here
     my.jsonURL = "js/authorIpsum.json";
-    
-    // compare functions for sorting
     var alphabetical = function(a, b) {
 	var A = a.toLowerCase();
 	var B = b.toLowerCase();
@@ -33,127 +33,59 @@ var GET_JSON = (function() {
 	else { return 0; }
     }
     var byShortName = function(a, b) { return alphabetical( a.shortName, b.shortName ) };
-    
-
-    // some other useful functions
-    var castToAuthorObj = function(author) {
-	return new AuthorObj(author);
-    }
+    var castToAuthorObj = function(author) { return new AuthorObj(author); }
     var processJSON = function( jsonData, textStatus, xhr ) {
 	my.authorData = jsonData.authors.map( castToAuthorObj ).sort(byShortName);
     }
 
+    my.getAuthorData = function() {
+	$.ajax( { type: "GET",
+		  url: my.jsonURL,
+		  async: false,
+		  dataType: "json",
+		  contentType: 'application/json; charset=utf-8',
+		  success: processJSON } );
+    }
+    
+    my.populateAuthorPullDown = function() {
+	var $authorPulldown = $('#authorname');
+	var $pulldownItems = my.authorData
+	    .map(function(author){ return $('<option></option>').attr('value', author.shortName).append(author.name); });
+
+	$authorPulldown.append($pulldownItems);
+    }
+
+    my.publish = function(properties) {
+	var $ipsumAnchor = $('#generatedtext');
+	$ipsumAnchor.empty();
+	var authorForOutput = my.authorData.filter( function(author){ return author.shortName === properties.author; } )[0];
+	var outputText = ""
+	if (properties.pTags) {
+	    outputText = authorForOutput.taggedText;
+	} else {
+	    outputText = authorForOutput.untaggedText;
+	}
+	var $outputText = $('<div></div>').html(outputText);
+	$ipsumAnchor.append($outputText);
+    }
+    
     // This is where we begin doing stuff
-    $.ajax( { type: "GET",
-	      url: my.jsonURL,
-	      async: false,
-	      dataType: "json",
-	      contentType: 'application/json; charset=utf-8',
-	      success: processJSON } );
+    my.getAuthorData();
+    my.populateAuthorPullDown();
+    
+    my.eventListeners = (function() {
+	var $generate = $('#generate');
+	$generate.on('click', function(event) {
+	    event.preventDefault();
+	    var values = {};
+	    values.author = $('#authorname option:selected').attr("value");
+	    //I'm commenting these out as I don't think it's actually a useful feature
+	    //values.wordsOrParagraphs = $( "input:checked" ).val();
+	    //values.ipsumLength = parseInt($('#ipsumLength').val());
+	    values.pTags = $('#tagsCheckBox').is(':checked');
+	    my.publish(values);
+	});
+    })();
     
     return my;
-    
 })();
-
-
-
-//array of objects
-var authorsArray = [coates, douglas, dubois, garvey, hooks, kingjr, lincoln, malcolmx, obama, truth, washington, wells, west]
-
-//this function will run onClick. Logs the form data for localstorage, gets text data, and manipulates text based on form submission.
-var clicked = function(event) {
-  event.preventDefault();
-  //Following Lines assign variables to user inputs in the html form, Logs to console and places them in an array.
-  var formAuthor = document.getElementById('authorname').value;
-  //console.log(formAuthor);
-  var formQuantity = document.getElementById('quantity').value;
-  if (document.getElementById('para').checked) {
-    var formParaWords = "Paragraphs";
-    } else if (document.getElementById('words').checked) {
-    var formParaWords = "Words"
-  };
-
-  if (document.getElementById('pTag').checked) {
-    var formPTag = true;
-  } else {
-    var formPTag = false;
-  };
-
-
-  var formFont = document.getElementById('fontname').value;
-
-  //console.log(formAuthor, formQuantity, formParaWords, formPTag, formFont);
-  var userEntry = [formAuthor, formQuantity, formParaWords, formPTag, formFont]
-
-  var generatorStorage = JSON.stringify(userEntry);
-  localStorage.setItem("select", generatorStorage);
-
-  //BEGIN IPSUM GENERATOR
-  for (var i =0; i < authorsArray.length; i++) {
-    if (formAuthor === authorsArray[i].shortname) {
-      str = authorsArray[i].text;
-      //console.log(str);
-    };
-  }
-
-  //var counter = 0
-  var num = formQuantity;
-  var font = formFont;
-  var parag;
-  var placement = document.getElementById('generatedtext');
-  var j = [];
-
-  if (formParaWords === "Paragraphs" && formPTag) {
-    //take str and split it into num parts and add ptags
-    for (var i =0; i < authorsArray.length; i++) {
-        if (formAuthor === authorsArray[i].shortname) {
-          parag = authorsArray[i].para;
-        };
-      };
-      for (var i = 0; i < formQuantity; i++) {
-        j.push("<p>" + "&lt;p&gt" + parag[i] + "&lt/p&gt");
-      };
-      str = j;
-      //console.log(str);
-
-  } else if (formParaWords === "Words" && formPTag) {
-    //take str and split it into a new string with only num words and wrap it in ptags
-    var splitStr = str.split(" ").splice(0,num).join(" ");
-    str = "&lt;p&gt" + splitStr + "&lt/p&gt";
-
-  } else if (formParaWords === "Paragraphs") {
-      for (var i =0; i < authorsArray.length; i++) {
-        if (formAuthor === authorsArray[i].shortname) {
-          parag = authorsArray[i].para;
-        };
-      };
-      for (var i = 0; i < formQuantity; i++) {
-        j.push("<p>" + parag[i]);
-      };
-        str = j;
-        //console.log(str);
-
-  } else if (formParaWords === "Words") {
-    str = str.split(" ").splice(0,num).join(" ");
-
-  };
-
-  //assign section id='generatedtext' a classname based on font choice
-  if (formFont === "lora") {
-    document.getElementById('generatedtext').className = "lora";
-  } else if (formFont === "poiret1") {
-    document.getElementById('generatedtext').className = "poiret1"
-  } else if (formFont === "o2") {
-    document.getElementById('generatedtext').className = "o2";
-  } else if (formFont === "pmarker") {
-    document.getElementById('generatedtext').className = "pmarker";
-  }
-
-  placement.innerHTML = str;
-
-} //END OF CLICKED FUNCTION
-
-
-//Event Listener for 'Generate Ipsum' Button
-var generate = document.getElementById('generate');
-generate.addEventListener('click', clicked, false);

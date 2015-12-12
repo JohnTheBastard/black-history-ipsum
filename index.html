@@ -6,26 +6,10 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
     <link href='https://fonts.googleapis.com/css?family=Lora|Poiret+One|Oxygen|Amatic+SC|Changa+One|Permanent+Marker' rel='stylesheet' type='text/css'>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="js/coates.js"></script>
-    <script src="js/douglas.js"></script>
-    <script src="js/dubois.js"></script>
-    <script src="js/garvey.js"></script>
-    <script src="js/hooks.js"></script>
-    <script src="js/kingjr.js"></script>
-    <script src="js/lincoln.js"></script>
-    <script src="js/malcolmx.js"></script>
-    <script src="js/obama.js"></script>
-    <script src="js/truth.js"></script>
-    <script src="js/washington.js"></script>
-    <script src="js/wells.js"></script>
-    <script src="js/west.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
 
   <body>
-
     <div class="staticHeader">
       <header class="header">
         <h1 class="title">The Black History Ipsum</h1>
@@ -48,66 +32,28 @@
 
     <div id="userInputContainer">
       <section id="generatedform">
-        <form>
+        <div id="userInputFields">
+	 <label for="author">Choose an author:</label>
+	 <div><select id="authorname"></select>  </div>
+       <!--<div><label for="ipsumLength">Ipsum Length:</label>
+	 <span><input id="ipsumLength" type="number" min="1" value="1"></span>
+	 <span><input type="radio" name="wordsOrParagraphs" value="paragraphs" checked>
+            <label for="paragraphs">Paragraphs</label></span>
+	 <span><input type="radio" name="wordsOrParagraphs" value="words" >
+            <label for="words">Words</label><span>-->
+	 <br />
+	 <span>
+	 <input type="checkbox" id="tagsCheckBox" name="pTags" checked> add paragraph tags
+	 </span>
+       </div>
 
-
-          <div id="userInputFields">
-            <label>Choose an author:</label>
-            <select id="authorname" >
-              <option value="coates">Ta-Nehisi Coates</option>
-              <option value="douglas">Fredrick Douglas</option>
-              <option value="dubois">W. E. B. Du Bois</option>
-              <option value="garvey">Marcus Garvey</option>
-              <option value="hooks">Bell Hooks</option>
-              <option value="kingjr">Martin Luther King Jr</option>
-              <option value="lincoln">Abraham Lincoln</option>
-              <option value="malcolmx">Malcolm X</option>
-              <option value="obama">Barack Obama</option>
-              <option value="truth">Sojourner Truth</option>
-              <option value="washington">Booker T. Washington</option>
-              <option value="wells">Ida B Wells</option>
-              <option value="west">Cornel West</option>
-            </select><br>
-            <br>
-
-            <label>Quantity:</label>
-            <input type="number" name="" id="quantity"><br>
-            <br>
-
-            <input type="radio" name="q" id="para" >
-            <label>Paragraphs</label>
-            <br>
-            <input type="radio" name="q" id="words" >
-            <label>Words</label>
-            <br>
-            <br>
-
-            <input type="checkbox" name="checkBox" id="pTag" value="ptags" >
-            <label>Add paragraph tags </label><br>
-            <br>
-
-            <label>Font Choice: </label><br>
-            <select id="fontname">
-              <option value="lora">Lora</option>
-              <option value="poiret1">Poiret One</option>
-              <option value="o2">Oxygen</option>
-              <option value="pmarker">Permanent Marker</option>
-            </select><br>
-            <br>
-
-            <button id="generate" /> Generate Ipsum </button>
-            <div class="button">Generate Ipsum</div>
-            <input type="hidden" /><br>
-            <br>
-          </div>
-        </form>
+       <div class="button" id="generate">Generate Ipsum</div>
+       </div>
+     
       </section>
-    </div>
-
+    </div>    
     <div id="outPutContainer">
-      <section id="generatedtext">
-        <p></p>
-      </section>
+      <section id="generatedtext"></section>
     </div>
 
     <footer class="footer">This website was a final project for Code Fellows Bootcamp, 2015.</footer>
