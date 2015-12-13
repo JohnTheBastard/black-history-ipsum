@@ -25,33 +25,37 @@
     </div>
     <div class="block"></div>
 
-    <div id="aboutContainer">
-      <h1>Introduction</h1>
-      <p>There are an abundance of Lorem Ipsum generators available on the web. They range from incomprehensible to humorous to the unapologetically profane. My twelve-year-old son is learning to code and I would like for him to learn something from Lorem Ipsum. So I came up with the idea to create a text generator that would subtly teach him some Black history. When I was in school, Black history was always treated as a static subject relegated to February instead of a dynamic topic worthy of frequent engagement. With the help of my dedicated teammates, we have produced a working text generator that draws from the words of a few of the most notable African Americans in history.</p>
+    <div id="introAndFormContainer">
+
+      <div id="aboutContainer">
+        <h1>Introduction</h1>
+        <p>There are an abundance of Lorem Ipsum generators available on the web. They range from incomprehensible to humorous to the unapologetically profane. My twelve-year-old son is learning to code and I would like for him to learn something from Lorem Ipsum. So I came up with the idea to create a text generator that would subtly teach him some Black history. When I was in school, Black history was always treated as a static subject relegated to February instead of a dynamic topic worthy of frequent engagement. With the help of my dedicated teammates, we have produced a working text generator that draws from the words of a few of the most notable African Americans in history.</p>
+      </div>
+
+      <div id="userInputContainer">
+        <section id="generatedform">
+          <div id="userInputFields">
+            <h2>Try it out</h2>
+  	         <label for="author">Choose an author:</label>
+  	          <div><select id="authorname"></select> </div>
+               <!--<div><label for="ipsumLength">Ipsum Length:</label>
+        	 <span><input id="ipsumLength" type="number" min="1" value="1"></span>
+        	 <span><input type="radio" name="wordsOrParagraphs" value="paragraphs" checked>
+                    <label for="paragraphs">Paragraphs</label></span>
+        	 <span><<input type="button" name="name" value=""> type="radio" name="wordsOrParagraphs" value="words" >
+                    <label for="words">Words</label><span>-->
+          	<br/>
+      	    <span>
+  	           <input type="checkbox" id="tagsCheckBox" name="pTags" checked> add paragraph tags
+  	          </span>
+         
+              <div class="button" id="generate">Generate Ipsum</div>
+          </div>
+      </div>
+
     </div>
-
-    <div id="userInputContainer">
-      <section id="generatedform">
-        <div id="userInputFields">
-	 <label for="author">Choose an author:</label>
-	 <div><select id="authorname"></select>  </div>
-       <!--<div><label for="ipsumLength">Ipsum Length:</label>
-	 <span><input id="ipsumLength" type="number" min="1" value="1"></span>
-	 <span><input type="radio" name="wordsOrParagraphs" value="paragraphs" checked>
-            <label for="paragraphs">Paragraphs</label></span>
-	 <span><input type="radio" name="wordsOrParagraphs" value="words" >
-            <label for="words">Words</label><span>-->
-	 <br />
-	 <span>
-	 <input type="checkbox" id="tagsCheckBox" name="pTags" checked> add paragraph tags
-	 </span>
-       </div>
-
-       <div class="button" id="generate">Generate Ipsum</div>
-       </div>
-     
       </section>
-    </div>    
+    </div>
     <div id="outPutContainer">
       <section id="generatedtext"></section>
     </div>

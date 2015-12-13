@@ -28,7 +28,7 @@ h2 {
   max-width: 90%;
   margin: auto;
   font-size: 12px;
-  height: 180px;
+  height: 160px;
 }
 
 .titleImg{
@@ -44,7 +44,7 @@ h2 {
   font-size: 3em;
   color: #6a6562;
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 }
 
 .nav {
@@ -87,49 +87,45 @@ a:hover {
   margin-bottom: 50px;
 }
 
-#aboutContainer {
-  max-width: 90%;
+#introAndFormContainer{
+  max-width: 85%;
   margin: auto;
-  margin-bottom: 50px;
-  padding-top: 20px;
+  position: relative;
+}
+
+#aboutContainer {
+  max-width: 45%;
+  display: inline-block;
 }
 
 #aboutContainer h1 {
-  max-width: 50%;
-  margin: 20px 0px 10px 50px;
   font-family: Didot,Garamond,Times New Roman,serif;
-  font-size: 1.5em;
   color: #6a6562;
-  text-align: left;
 
 }
 
 #aboutContainer p {
-  max-width: 45%;
-  margin: 10px 0px 20px 27px;
   font-family: Didot,Garamond,Times New Roman,serif;
   text-align: left;
   color: #6a6562;
 }
 
 #userInputContainer {
-  max-width: 90%;
-  margin: auto;
+  width: 400px;
+  display: inline-block;
+  position: absolute;
+  top: 30px;
+  right: 75px;
   border: 1px solid #6a6562;
+
 }
 
 #userInputFields {
   color: #6a6562;
-  margin: 20px 0px 20px 20px;
+  margin-bottom: 45px;
+  text-align: center;
 }
 
-#outPutContainer {
-  max-width: 90%;
-  margin: auto;
-  margin-top: 20px;
-  border: 1px solid #6a6562;
-  padding: 20px;
-}
 
 .button {
   font-family: Georgia;
@@ -141,10 +137,19 @@ a:hover {
   width: 130px;
   max-height: 18px;
   text-align: center;
+  margin: auto;
 }
 
 .button:hover {
     background: #77bae7;
+}
+
+#outPutContainer {
+  max-width: 85%;
+  padding: 20px;
+  margin: auto;
+  margin-top: 20px;
+  border: 1px solid #6a6562;
 }
 /*---------DEV TEAM PAGE---------*/
 
@@ -155,18 +160,18 @@ a:hover {
 
 .teamMember {
   float: left;
-  max-width: 250px;
-  margin: 35px;
+  max-width: 270px;
+  margin: 25px;
   text-align: center;
 }
 
 .teamPhoto {
-  max-width: 300px;
+  max-width: 270px;
 }
 /*---------AUTHOR PAGE---------*/
 
 #authorContainer {
-  max-width: 80%;
+  max-width: 70%;
   margin: auto;
 }
 
@@ -185,26 +190,6 @@ a:hover {
   max-height: 150px;
 }
 
-.o2 {
-  font-family: 'Oxygen';
-}
-
-.lora {
-  font-family: 'Lora';
-}
-
-.poiret1 {
-  font-family: 'Poiret One';
-}
-
-.changa {
-  font-family: 'Changa One';
-}
-
-.pmarker {
-  font-family: 'Permanent Marker';
-}
-
 /*---------FOOTER---------*/
 
 .footer {
@@ -212,4 +197,5 @@ a:hover {
   margin: 10px;
   padding: 20px;
   text-align: center;
+  color: #6a6562;
 }
