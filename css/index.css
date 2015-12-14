@@ -34,6 +34,24 @@
     a:hover {
       color: #30B1E3;
     }
+
+    .button {
+      font-family: Georgia;
+      color: #F4EDDF;
+      font-size: 15px;
+      background: #3498db;
+      padding: 15px;
+      text-decoration: none;
+      width: 130px;
+      max-height: 18px;
+      text-align: center;
+      margin: auto;
+    }
+
+    .button:hover {
+        background: #77bae7;
+    }
+
 }
 
 @media screen and (min-width: 1051px) {
